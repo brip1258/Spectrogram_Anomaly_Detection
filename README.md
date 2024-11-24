@@ -2,11 +2,7 @@
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
-- [Configuration](#configurations)
-- [Examples](#examples)
-- [Authors](#contributing)
-- [Acknowledgements](acknowledgements)
+- [Report](#report)
 
 ## Installation
 1. Clone the respository:
