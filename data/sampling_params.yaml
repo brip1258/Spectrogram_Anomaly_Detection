@@ -1,5 +1,6 @@
 labels:
     - Normal
+    - oscillating_tile
     - first_order_high_noise
     - first_order_data_loss
     - third_order_data_loss
