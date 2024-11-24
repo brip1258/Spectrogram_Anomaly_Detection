@@ -1,0 +1,24 @@
+labels:
+    - Normal
+    - first_order_high_noise
+    - first_order_data_loss
+    - third_order_data_loss
+    - lightning
+    - rfi_ionosphere_reflect
+    - galactic_plane
+    - source_in_sidelobes
+    - solar_storm
+
+percentage_contamination:
+    oscillating_tile: 0.1
+    first_order_high_noise: 0.1
+    first_order_data_loss: 0.1
+    third_order_data_loss: 0.1
+    lightning: 0.1
+    rfi_ionosphere_reflect: 0.1
+    galactic_plane: 0.1
+    source_in_sidelobes: 0.1
+    solar_storm: 0.1
+
+file_path:
+    data: "./data/ROAD_dataset.h5"
