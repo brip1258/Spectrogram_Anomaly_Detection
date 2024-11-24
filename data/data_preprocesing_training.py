@@ -1,7 +1,7 @@
 import h5py
 import numpy as np
 class DataPreprocessor:
-    def load_h5_data(self) -> np.array:
+    def load_h5_data(h5_file_path, labels) -> np.array:
         """
         Load data from H5 file, including normal and anomaly data.
         
@@ -12,7 +12,7 @@ class DataPreprocessor:
         Returns:
             np.array: output will be of normal data and anomaly data with associated labels from  data set
         """
-        with h5py.File(self.h5_file_path, 'r') as hf:
+        with h5py.File(h5_file_path, 'r') as hf:
             train_data = hf['train_data/data'][:]
             train_labels = hf['train_data/labels'][:].astype(str)
 
@@ -26,7 +26,7 @@ class DataPreprocessor:
 
             # Load anomaly data
             anomaly_data, anomaly_labels = [], []
-            for anomaly in self.labels:
+            for anomaly in labels:
                 if anomaly != 'Normal':  # Skip 'Normal'
                     group = hf[f'anomaly_data/{anomaly}']
                     anomaly_data.append(group['data'][:])
