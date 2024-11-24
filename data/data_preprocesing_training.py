@@ -1,22 +1,6 @@
 import h5py
 import numpy as np
 class DataPreprocessor:
-    def __init__(self, h5_file_path, labels, percentage_contamination, seed=42):
-        """
-        Initialize the DataPreprocessor.
-        
-        Args:
-            h5_file_path (str): Path to the H5 file containing the data.
-            labels (list): List of all possible labels for the dataset.
-            percentage_contamination (dict): Percentage contamination for each anomaly class.
-            seed (int): Seed for randomization to ensure reproducibility.
-        """
-        self.h5_file_path = h5_file_path
-        self.labels = labels
-        self.percentage_contamination = percentage_contamination
-        self.seed = seed
-        np.random.seed(self.seed)
-        
     def load_h5_data(self) -> np.array:
         """
         Load data from H5 file, including normal and anomaly data.
