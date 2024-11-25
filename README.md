@@ -43,9 +43,15 @@ Prior to modeling, I had to preprocess the training data. The data set included 
 I used Random Forest as a baseline model to evaluate where improvements could be made. From there I decided to utilize a convolutional neural network (CNN). A CNN was chosen because this is a multi dimensional dataset. CNNs are well-suited for multidimensional datasets like this, as they are highly effective at extracting meaningful features from complex data structures. Additionally, the exploratory data analysis (EDA) revealed significant noise in the dataset. CNNs excel at isolating important features while ignoring irrelevant noise, leading to more accurate predictions.
 
 CNN Results:
-- Accuracy of 96%
-- Precision of 97%
-- Recall of 96% 
+- Accuracy of 65%
+- Precision of 67%
+- Recall of 65% 
+
+
+Random Forest Results:
+- Accuracy of 59%
+- Precision of 66%
+- Recall of 59%
 
 These results are promising, but the high scores suggest the potential for overfitting. This could be from the limited sample size that was used. In order to address this I could increase the sample size, which is conditional due to the imbalance int he original data set.
 

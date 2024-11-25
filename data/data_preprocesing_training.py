@@ -124,7 +124,7 @@ class DataPreprocessor:
         train_data = train_data[shuffle_indices]
         train_labels = train_labels[shuffle_indices]
 
-        train_data = normalize(train_data)
+        train_data = DataPreprocessor.normalize(train_data)
         return train_data, train_labels
 
     def calculate_class_percentages(train_labels: np.array) -> dict:
@@ -159,30 +159,30 @@ class DataPreprocessor:
         Return:
             np.array: returns an sub array of training data to be used for model training
         """
-        np.random.seed(seed)
+        np.random.seed(int(seed))
 
         # Load data
-        train_data, train_labels, anomaly_data, anomaly_labels = load_h5_data(h5_file_path, labels)
+        train_data, train_labels, anomaly_data, anomaly_labels = DataPreprocessor.load_h5_data(h5_file_path, labels)
 
         # Calculate number of "Normal" samples dynamically based on percentage
         num_normal_samples = int(total_samples * normal_percentage) if normal_percentage and total_samples else len(
             np.where(train_labels == 'Normal')[0])
 
         # Subsample "Normal" data
-        train_data, train_labels = subsample_normal_data(train_data, train_labels, num_normal_samples)
+        train_data, train_labels = DataPreprocessor.subsample_normal_data(train_data, train_labels, num_normal_samples)
 
         # Add anomalies if total_samples is specified
         if total_samples:
             remaining_samples = total_samples - num_normal_samples
-            train_data, train_labels = contaminate_with_anomalies(
+            train_data, train_labels = DataPreprocessor.contaminate_with_anomalies(
                 train_data, train_labels, anomaly_data, anomaly_labels, percentage_contamination, remaining_samples
             )
 
         # Shuffle and normalize data
-        train_data, train_labels = shuffle_and_normalize_data(train_data, train_labels)
+        train_data, train_labels = DataPreprocessor.shuffle_and_normalize_data(train_data, train_labels)
 
         # Calculate class percentages
-        percentages = calculate_class_percentages(train_labels)
+        percentages = DataPreprocessor.calculate_class_percentages(train_labels)
         print("Class Percentages in Training Data:", percentages)
 
         # Encode labels
