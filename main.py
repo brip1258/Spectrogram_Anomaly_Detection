@@ -45,6 +45,11 @@ print('Training model')
 # Initialize and Train CNN
 #cnn = CNNClassifier(input_shape=input_shape, num_classes=num_classes)
 model = CNNClassifier.build_model(input_shape, num_classes)
+
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',  # Use categorical crossentropy for multiclass classification
+              metrics=['accuracy'])
+
 history = CNNClassifier.train(model, X_train, train_labels_onehot, X_train_val, val_labels_onehot)
 print('Model Train Complete')
 
