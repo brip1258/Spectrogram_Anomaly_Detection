@@ -162,7 +162,7 @@ class DataPreprocessor:
         np.random.seed(seed)
 
         # Load data
-        train_data, train_labels, anomaly_data, anomaly_labels = load_h5_data(h5_file_path, anomalies)
+        train_data, train_labels, anomaly_data, anomaly_labels = load_h5_data(h5_file_path, labels)
 
         # Calculate number of "Normal" samples dynamically based on percentage
         num_normal_samples = int(total_samples * normal_percentage) if normal_percentage and total_samples else len(
